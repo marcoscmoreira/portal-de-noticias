@@ -1,18 +1,18 @@
 #primary {
     padding-block: 20px;
 
-    div {
+    & div {
         display: flex;
         align-items: center;
         gap: 8px;
     }
 
     /* nesting css */
-    div:nth-child(2){
+    & div:nth-child(2){
         margin-inline: auto;
     }
 
-    div:nth-child(3) {
+    & div:nth-child(3) {
         justify-self: end;
     }
 
@@ -23,4 +23,28 @@
     border: solid 1px var(--stroke-color);
     border-inline: none;
     justify-content: space-between;
+}
+
+@media (width <= 22.562rem) {
+
+    #primary {
+        padding-block: 16px;
+
+        & div > strong {
+            display: none;
+        }
+
+    }
+
+    #secondary {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        display: flex;
+        justify-content: space-around;
+        white-space: nowrap;   
+        gap: 2rem;
+        cursor: pointer;
+
+    }
+
 }

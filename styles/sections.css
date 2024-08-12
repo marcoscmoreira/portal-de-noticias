@@ -1,17 +1,17 @@
 section header {
     border-top: 1px solid var(--stroke-color);
-    padding-block: 12px 24px;
+    padding-block: 0.75rem 1.5rem;
     font: var(--text-span);
 
-    a {
+    & a {
         justify-self: end;
         align-items: center;
         gap: 8px;
 
-        span {
+        & span {
             background-image: url(../assets/icons/ArrowRight.svg);
-            width: 16px;
-            height: 16px;
+            width: 1rem;
+            height: 1rem;
         }
 
         &:hover span {
@@ -23,14 +23,14 @@ section header {
 #featured {
     grid-area: featured;
 
-    img {
+    & img {
         height: 100%;
         object-fit: cover;
     }
-    
+
     /* Fazer um elemento com gradiente*/
-    .card {
-        border-radius: 4px;
+    & .card {
+        border-radius: 0.25rem;
         overflow: hidden;
         position: relative;
 
@@ -40,25 +40,21 @@ section header {
             inset: 0;
             top: 50%;
 
-            background: linear-gradient(
-                180deg,
-                transparent 0%,
-                #020617 100%
-            );
+            background: linear-gradient(180deg, transparent 0%, #020617 100%);
         }
 
-        figcaption {
+        & figcaption {
             position: absolute;
             bottom: 0;
 
-            padding: 24px;
+            padding: 1.5rem;
 
             &:has(.text-lg) {
-                padding: 12px;
+                padding: 0.75rem;
             }
 
-            h2 {
-                margin-top: 8px;
+            & h2 {
+                margin-top: 0.5rem;
             }
         }
     }
@@ -67,25 +63,25 @@ section header {
 #weekly {
     grid-area: weekly;
     /* primeiro nivel de div */
-    &>div {
-        grid-template-columns: repeat(4, 292px);
+    & > div {
+        grid-template-columns: repeat(4, 18.25rem);
     }
 
-    img {
-        height: 160px;
+    & img {
+        height: 10rem;
     }
 
-    figure {
+    & figure {
         position: relative;
 
         .content-tag {
             position: absolute;
-            top: 8px;
-            left: 8px;
+            top: 0.5rem;
+            left: 0.5rem;
         }
 
-        p {
-            margin-top: 8px;
+        & p {
+            margin-top: 0.5rem;
             font-weight: 800;
         }
     }
@@ -94,14 +90,14 @@ section header {
 #ai {
     grid-area: ai;
 
-    img {
-        width: 176px;
+    & img {
+        width: 11rem;
         aspect-ratio: 1/1;
         object-fit: cover;
     }
 
-    h3 {
-        margin-block: 8px 4px;
+    & h3 {
+        margin-block: 0.5rem 0.25rem;
     }
 }
 
@@ -110,15 +106,47 @@ aside {
 }
 
 #more {
-    margin-top: 32px;
+    margin-top: 2rem;
 
-    h3 {
-        margin-top: 8px;
+    & h3 {
+        margin-top: 0.5rem;
     }
 
-    img {
-        width: 72px;
+    & img {
+        width: 4.5rem;
         aspect-ratio: 1/1;
         object-fit: cover;
+    }
+}
+
+@media (width <= 22.562rem) {
+    #featured,
+    #weekly div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #weekly {
+        & img {
+            height: 100%;
+        }
+
+        & div figure > p {
+            width: 20.5rem;
+            display: block;
+        }
+
+    }
+
+    #ai {
+        & div article {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        & div img {
+            min-width: 5rem;
+            height: 5rem;
+        }
     }
 }
